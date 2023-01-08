@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>1..2...3
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Connection</stringProp>
+            <stringProp name="Header.value">keep-alive</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept-Encoding</stringProp>
+            <stringProp name="Header.value">gzip, deflate, br</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">*/*</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">true</boolProp>
+        <boolProp name="CacheManager.controlledByThread">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="IQ_PriceLineItems_LI10" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="IQ_PriceLineItems_LI10" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope&#xd;
+	xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+	&lt;soapenv:Header/&gt;&#xd;
+	&lt;soapenv:Body&gt;&#xd;
+		&lt;PriceLineItems&#xd;
+			xmlns=&quot;http://www.hp.com/pa/optimus/&quot;&gt;&#xd;
+			&lt;Request&gt;&#xd;
+				&lt;ReferenceId&gt;${__time(,)}&lt;/ReferenceId&gt;&#xd;
+				&lt;OpportunityId&gt;OPD-0000806560&lt;/OpportunityId&gt;&#xd;
+				&lt;Tenant&gt;HPI&lt;/Tenant&gt;&#xd;
+				&lt;EngagementModel&gt;Reseller&lt;/EngagementModel&gt;&#xd;
+				&lt;RouteToMarket&gt;Indirect&lt;/RouteToMarket&gt;&#xd;
+				&lt;OfferId/&gt;&#xd;
+				&lt;EUCGlobalAcctFl/&gt;&#xd;
+				&lt;OfferClass/&gt;&#xd;
+				&lt;CACCode/&gt;&#xd;
+				&lt;PurchaseAgNr/&gt;&#xd;
+				&lt;RosterFlag&gt;true&lt;/RosterFlag&gt;&#xd;
+				&lt;PriceDescriptor&gt;&#xd;
+					&lt;PriceGeo&gt;US&lt;/PriceGeo&gt;&#xd;
+					&lt;Currency&gt;USD&lt;/Currency&gt;&#xd;
+					&lt;PriceTerms&gt;DDP&lt;/PriceTerms&gt;&#xd;
+					&lt;PriceTermType&gt;I&lt;/PriceTermType&gt;&#xd;
+				&lt;/PriceDescriptor&gt;&#xd;
+				&lt;Country&gt;US&lt;/Country&gt;&#xd;
+				&lt;PartnerA&gt;&#xd;
+					&lt;Id&gt;3-HSE4-16573&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10257531&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;D&lt;/Type&gt;&#xd;
+				&lt;/PartnerA&gt;&#xd;
+				&lt;PartnerB&gt;&#xd;
+					&lt;Id&gt;3-HSGW-6523&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10267200&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;T2R&lt;/Type&gt;&#xd;
+				&lt;/PartnerB&gt;&#xd;
+				&lt;Customer&gt;&#xd;
+					&lt;OPSIId&gt;1100697580&lt;/OPSIId&gt;&#xd;
+					&lt;MDCPOrgId&gt;900927995&lt;/MDCPOrgId&gt;&#xd;
+					&lt;MDCPSiteId&gt;1100697580&lt;/MDCPSiteId&gt;&#xd;
+					&lt;CustomerPresalesId/&gt;&#xd;
+					&lt;AMID2Id/&gt;&#xd;
+					&lt;AccountSTId&gt;601590151&lt;/AccountSTId&gt;&#xd;
+					&lt;MDCPBusinessRelationshipId&gt;11221081&lt;/MDCPBusinessRelationshipId&gt;&#xd;
+					&lt;BusinessAreaGroups&gt;&#xd;
+						&lt;BusinessAreaGroup&gt;&#xd;
+							&lt;BusinessAreaGroupName&gt;HPI&lt;/BusinessAreaGroupName&gt;&#xd;
+							&lt;CustomerSegmentCode&gt;SMB&lt;/CustomerSegmentCode&gt;&#xd;
+						&lt;/BusinessAreaGroup&gt;&#xd;
+					&lt;/BusinessAreaGroups&gt;&#xd;
+				&lt;/Customer&gt;&#xd;
+				&lt;SpecialScenario&gt;Standard&lt;/SpecialScenario&gt;&#xd;
+				&lt;PartnerGuidanceRoleId&gt;1&lt;/PartnerGuidanceRoleId&gt;&#xd;
+				&lt;SalesRepGuidanceRoleId&gt;2&lt;/SalesRepGuidanceRoleId&gt;&#xd;
+				&lt;SalesMgrGuidanceRoleId&gt;3&lt;/SalesMgrGuidanceRoleId&gt;&#xd;
+				&lt;PPSBusinessPartner&gt;false&lt;/PPSBusinessPartner&gt;&#xd;
+				&lt;Items&#xd;
+					xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&#xd;
+					&lt;Item xsi:type=&quot;ProductLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;2&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;4&lt;/Quantity&gt;&#xd;
+						&lt;BaseProduct&gt;U4414E&lt;/BaseProduct&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+					&lt;Item xsi:type=&quot;ConfigLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;3&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;2&lt;/Quantity&gt;&#xd;
+						&lt;ConfigId&gt;41257716&lt;/ConfigId&gt;&#xd;
+						&lt;RefConfigId&gt;41162477&lt;/RefConfigId&gt;&#xd;
+						&lt;Items&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;4&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS21AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;5&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;6&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;7&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3PG26AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;8&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT27AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;9&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT40AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;10&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;11&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;12&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS94AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+                                &lt;/Items&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+				&lt;/Items&gt;&#xd;
+			&lt;/Request&gt;&#xd;
+		&lt;/PriceLineItems&gt;&#xd;
+	&lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">hpi-optimus-itg.austin.hp.com</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/optimus/services/OptimusService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">Cp_UniqueId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;UniqueId&gt;(.*?)&lt;/</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">NotFound</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2108832202">${Cp_UniqueId}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+              <stringProp name="filename">E:/PERFORMANCE/Pricing Analytics_RestAPI/TestData/New_Test Data/IQ_PriceLineItems_LI10.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <stringProp name="delimiter">,</stringProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="IQ_PriceLineItems_LI20" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="IQ_PriceLineItems_LI20" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope&#xd;
+	xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+	&lt;soapenv:Header/&gt;&#xd;
+	&lt;soapenv:Body&gt;&#xd;
+		&lt;PriceLineItems&#xd;
+			xmlns=&quot;http://www.hp.com/pa/optimus/&quot;&gt;&#xd;
+			&lt;Request&gt;&#xd;
+				&lt;ReferenceId&gt;${__time(,)}&lt;/ReferenceId&gt;&#xd;
+				&lt;OpportunityId&gt;OPD-0000806560&lt;/OpportunityId&gt;&#xd;
+				&lt;Tenant&gt;HPI&lt;/Tenant&gt;&#xd;
+				&lt;EngagementModel&gt;Reseller&lt;/EngagementModel&gt;&#xd;
+				&lt;RouteToMarket&gt;Indirect&lt;/RouteToMarket&gt;&#xd;
+				&lt;OfferId/&gt;&#xd;
+				&lt;EUCGlobalAcctFl/&gt;&#xd;
+				&lt;OfferClass/&gt;&#xd;
+				&lt;CACCode/&gt;&#xd;
+				&lt;PurchaseAgNr/&gt;&#xd;
+				&lt;RosterFlag&gt;true&lt;/RosterFlag&gt;&#xd;
+				&lt;PriceDescriptor&gt;&#xd;
+					&lt;PriceGeo&gt;US&lt;/PriceGeo&gt;&#xd;
+					&lt;Currency&gt;USD&lt;/Currency&gt;&#xd;
+					&lt;PriceTerms&gt;DDP&lt;/PriceTerms&gt;&#xd;
+					&lt;PriceTermType&gt;I&lt;/PriceTermType&gt;&#xd;
+				&lt;/PriceDescriptor&gt;&#xd;
+				&lt;Country&gt;US&lt;/Country&gt;&#xd;
+				&lt;PartnerA&gt;&#xd;
+					&lt;Id&gt;3-HSE4-16573&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10257531&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;D&lt;/Type&gt;&#xd;
+				&lt;/PartnerA&gt;&#xd;
+				&lt;PartnerB&gt;&#xd;
+					&lt;Id&gt;3-HSGW-6523&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10267200&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;T2R&lt;/Type&gt;&#xd;
+				&lt;/PartnerB&gt;&#xd;
+				&lt;Customer&gt;&#xd;
+					&lt;OPSIId&gt;1100697580&lt;/OPSIId&gt;&#xd;
+					&lt;MDCPOrgId&gt;900927995&lt;/MDCPOrgId&gt;&#xd;
+					&lt;MDCPSiteId&gt;1100697580&lt;/MDCPSiteId&gt;&#xd;
+					&lt;CustomerPresalesId/&gt;&#xd;
+					&lt;AMID2Id/&gt;&#xd;
+					&lt;AccountSTId&gt;601590151&lt;/AccountSTId&gt;&#xd;
+					&lt;MDCPBusinessRelationshipId&gt;11221081&lt;/MDCPBusinessRelationshipId&gt;&#xd;
+					&lt;BusinessAreaGroups&gt;&#xd;
+						&lt;BusinessAreaGroup&gt;&#xd;
+							&lt;BusinessAreaGroupName&gt;HPI&lt;/BusinessAreaGroupName&gt;&#xd;
+							&lt;CustomerSegmentCode&gt;SMB&lt;/CustomerSegmentCode&gt;&#xd;
+						&lt;/BusinessAreaGroup&gt;&#xd;
+					&lt;/BusinessAreaGroups&gt;&#xd;
+				&lt;/Customer&gt;&#xd;
+				&lt;SpecialScenario&gt;Standard&lt;/SpecialScenario&gt;&#xd;
+				&lt;PartnerGuidanceRoleId&gt;1&lt;/PartnerGuidanceRoleId&gt;&#xd;
+				&lt;SalesRepGuidanceRoleId&gt;2&lt;/SalesRepGuidanceRoleId&gt;&#xd;
+				&lt;SalesMgrGuidanceRoleId&gt;3&lt;/SalesMgrGuidanceRoleId&gt;&#xd;
+				&lt;PPSBusinessPartner&gt;false&lt;/PPSBusinessPartner&gt;&#xd;
+				&lt;Items&#xd;
+					xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&#xd;
+					&lt;Item xsi:type=&quot;ProductLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;2&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;4&lt;/Quantity&gt;&#xd;
+						&lt;BaseProduct&gt;U4414E&lt;/BaseProduct&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+					&lt;Item xsi:type=&quot;ConfigLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;3&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;2&lt;/Quantity&gt;&#xd;
+						&lt;ConfigId&gt;41257716&lt;/ConfigId&gt;&#xd;
+						&lt;RefConfigId&gt;41162477&lt;/RefConfigId&gt;&#xd;
+						&lt;Items&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;4&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS21AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;5&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;6&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;7&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3PG26AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;8&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT27AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;9&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT40AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;10&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;11&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;12&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS94AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;13&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;14&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;15&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;16&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;17&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;18&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT18AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;19&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;4PJ29AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+						&lt;/Items&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+					&lt;Item xsi:type=&quot;ConfigLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;20&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;2&lt;/Quantity&gt;&#xd;
+						&lt;ConfigId&gt;41257719&lt;/ConfigId&gt;&#xd;
+						&lt;RefConfigId&gt;41257719&lt;/RefConfigId&gt;&#xd;
+						&lt;Items&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;21&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS21AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;22&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;23&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;24&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3PG26AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+						&lt;/Items&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+				&lt;/Items&gt;&#xd;
+			&lt;/Request&gt;&#xd;
+		&lt;/PriceLineItems&gt;&#xd;
+	&lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">hpi-optimus-itg.austin.hp.com</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/optimus/services/OptimusService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">Cp_UniqueId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;UniqueId&gt;(.*?)&lt;/</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">NotFound</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2108832202">${Cp_UniqueId}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+              <stringProp name="filename">E:/PERFORMANCE/Pricing Analytics_RestAPI/TestData/New_Test Data/IQ_PriceLineItems_LI20.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <stringProp name="delimiter">,</stringProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="IQ_PriceLineItems_LI30" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="IQ_PriceLineItems_LI30" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope&#xd;
+	xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&#xd;
+	&lt;soapenv:Header/&gt;&#xd;
+	&lt;soapenv:Body&gt;&#xd;
+		&lt;PriceLineItems&#xd;
+			xmlns=&quot;http://www.hp.com/pa/optimus/&quot;&gt;&#xd;
+			&lt;Request&gt;&#xd;
+				&lt;ReferenceId&gt;${__time(,)}&lt;/ReferenceId&gt;&#xd;
+				&lt;OpportunityId&gt;OPD-0000806560&lt;/OpportunityId&gt;&#xd;
+				&lt;Tenant&gt;HPI&lt;/Tenant&gt;&#xd;
+				&lt;EngagementModel&gt;Reseller&lt;/EngagementModel&gt;&#xd;
+				&lt;RouteToMarket&gt;Indirect&lt;/RouteToMarket&gt;&#xd;
+				&lt;OfferId/&gt;&#xd;
+				&lt;EUCGlobalAcctFl/&gt;&#xd;
+				&lt;OfferClass/&gt;&#xd;
+				&lt;CACCode/&gt;&#xd;
+				&lt;PurchaseAgNr/&gt;&#xd;
+				&lt;RosterFlag&gt;true&lt;/RosterFlag&gt;&#xd;
+				&lt;PriceDescriptor&gt;&#xd;
+					&lt;PriceGeo&gt;US&lt;/PriceGeo&gt;&#xd;
+					&lt;Currency&gt;USD&lt;/Currency&gt;&#xd;
+					&lt;PriceTerms&gt;DDP&lt;/PriceTerms&gt;&#xd;
+					&lt;PriceTermType&gt;I&lt;/PriceTermType&gt;&#xd;
+				&lt;/PriceDescriptor&gt;&#xd;
+				&lt;Country&gt;US&lt;/Country&gt;&#xd;
+				&lt;PartnerA&gt;&#xd;
+					&lt;Id&gt;3-HSE4-16573&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10257531&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;D&lt;/Type&gt;&#xd;
+				&lt;/PartnerA&gt;&#xd;
+				&lt;PartnerB&gt;&#xd;
+					&lt;Id&gt;3-HSGW-6523&lt;/Id&gt;&#xd;
+					&lt;LocationId&gt;10267200&lt;/LocationId&gt;&#xd;
+					&lt;Type&gt;T2R&lt;/Type&gt;&#xd;
+				&lt;/PartnerB&gt;&#xd;
+				&lt;Customer&gt;&#xd;
+					&lt;OPSIId&gt;1100697580&lt;/OPSIId&gt;&#xd;
+					&lt;MDCPOrgId&gt;900927995&lt;/MDCPOrgId&gt;&#xd;
+					&lt;MDCPSiteId&gt;1100697580&lt;/MDCPSiteId&gt;&#xd;
+					&lt;CustomerPresalesId/&gt;&#xd;
+					&lt;AMID2Id/&gt;&#xd;
+					&lt;AccountSTId&gt;601590151&lt;/AccountSTId&gt;&#xd;
+					&lt;MDCPBusinessRelationshipId&gt;11221081&lt;/MDCPBusinessRelationshipId&gt;&#xd;
+					&lt;BusinessAreaGroups&gt;&#xd;
+						&lt;BusinessAreaGroup&gt;&#xd;
+							&lt;BusinessAreaGroupName&gt;HPI&lt;/BusinessAreaGroupName&gt;&#xd;
+							&lt;CustomerSegmentCode&gt;SMB&lt;/CustomerSegmentCode&gt;&#xd;
+						&lt;/BusinessAreaGroup&gt;&#xd;
+					&lt;/BusinessAreaGroups&gt;&#xd;
+				&lt;/Customer&gt;&#xd;
+				&lt;SpecialScenario&gt;Standard&lt;/SpecialScenario&gt;&#xd;
+				&lt;PartnerGuidanceRoleId&gt;1&lt;/PartnerGuidanceRoleId&gt;&#xd;
+				&lt;SalesRepGuidanceRoleId&gt;2&lt;/SalesRepGuidanceRoleId&gt;&#xd;
+				&lt;SalesMgrGuidanceRoleId&gt;3&lt;/SalesMgrGuidanceRoleId&gt;&#xd;
+				&lt;PPSBusinessPartner&gt;false&lt;/PPSBusinessPartner&gt;&#xd;
+				&lt;Items&#xd;
+					xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&#xd;
+					&lt;Item xsi:type=&quot;ProductLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;2&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;4&lt;/Quantity&gt;&#xd;
+						&lt;BaseProduct&gt;U4414E&lt;/BaseProduct&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+					&lt;Item xsi:type=&quot;ConfigLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;3&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;2&lt;/Quantity&gt;&#xd;
+						&lt;ConfigId&gt;41257716&lt;/ConfigId&gt;&#xd;
+						&lt;RefConfigId&gt;41162477&lt;/RefConfigId&gt;&#xd;
+						&lt;Items&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;4&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS21AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;5&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;6&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;7&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3PG26AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;8&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT27AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;9&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT40AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;10&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;11&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;12&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS94AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;13&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;14&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;15&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;16&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;17&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;18&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT18AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;19&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;4PJ29AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+						&lt;/Items&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+					&lt;Item xsi:type=&quot;ConfigLineItem&quot;&gt;&#xd;
+						&lt;Id&gt;20&lt;/Id&gt;&#xd;
+						&lt;Quantity&gt;2&lt;/Quantity&gt;&#xd;
+						&lt;ConfigId&gt;41257719&lt;/ConfigId&gt;&#xd;
+						&lt;RefConfigId&gt;41257719&lt;/RefConfigId&gt;&#xd;
+						&lt;Items&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;21&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS21AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;22&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;23&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX16AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;24&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3PG26AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;25&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT27AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;26&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT40AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;27&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;28&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX07AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;29&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DS94AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;30&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DT18AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;31&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;32&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DX03AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;33&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+							&lt;Item&gt;&#xd;
+								&lt;Id&gt;34&lt;/Id&gt;&#xd;
+								&lt;Quantity&gt;1&lt;/Quantity&gt;&#xd;
+								&lt;BaseProduct&gt;3DW98AV&lt;/BaseProduct&gt;&#xd;
+								&lt;OptionCode&gt;ABA&lt;/OptionCode&gt;&#xd;
+							&lt;/Item&gt;&#xd;
+						&lt;/Items&gt;&#xd;
+					&lt;/Item&gt;&#xd;
+				&lt;/Items&gt;&#xd;
+			&lt;/Request&gt;&#xd;
+		&lt;/PriceLineItems&gt;&#xd;
+	&lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">hpi-optimus-itg.austin.hp.com</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/optimus/services/OptimusService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">Cp_UniqueId</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;UniqueId&gt;(.*?)&lt;/</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">NotFound</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2108832202">${Cp_UniqueId}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+              <stringProp name="filename">E:/PERFORMANCE/Pricing Analytics_RestAPI/TestData/New_Test Data/IQ_PriceLineItems_LI30.csv</stringProp>
+              <stringProp name="fileEncoding">UTF-8</stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <boolProp name="ignoreFirstLine">false</boolProp>
+              <stringProp name="delimiter">,</stringProp>
+              <boolProp name="quotedData">false</boolProp>
+              <boolProp name="recycle">true</boolProp>
+              <boolProp name="stopThread">false</boolProp>
+              <stringProp name="shareMode">shareMode.all</stringProp>
+            </CSVDataSet>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
